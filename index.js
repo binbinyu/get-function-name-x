@@ -63,8 +63,10 @@
 
   var isFunction = require('is-function-x');
   var getFnName;
-
-  if ((function test() {}).name !== 'test') {
+  var test = {
+    'test': function test() {}
+  };
+  if (test['test'].name !== 'test') {
     var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
     var fToString = Function.prototype.toString;
     var pMatch = String.prototype.match;
